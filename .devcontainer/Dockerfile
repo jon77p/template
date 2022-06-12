@@ -5,7 +5,8 @@ ARG VARIANT="jammy"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o /tmp/cloudflared-linux-amd64.deb \
+RUN groupadd ssh \
+    && curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o /tmp/cloudflared-linux-amd64.deb \
     && dpkg -i /tmp/cloudflared-linux-amd64.deb \
     && apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # && apt-get -y install --no-install-recommends \
