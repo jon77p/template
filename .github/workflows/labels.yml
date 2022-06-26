@@ -1,4 +1,3 @@
----
 on: issues
 name: Create Default Labels
 jobs:
