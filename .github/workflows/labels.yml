@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # tag=v2
-      - uses: lannonbr/issue-label-manager-action@1f8a70055154eaeceb9a922519d6a44dcaa35909 # tag=3.0.0
+      - uses: lannonbr/issue-label-manager-action@7890981d0e8f2922211a7fe2c391c53cb3037cb4 # tag=3.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
