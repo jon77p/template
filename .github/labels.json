@@ -1,3 +1,4 @@
 [
-    {"name": "feature", "color": "f000ff", "description": "Feature label"}
+    {"name": "feature", "color": "f000ff", "description": "Feature label"},
+    {"name": "automerge", "color": "f000ff", "description": "Automerge label"}
 ]
