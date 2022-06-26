@@ -13,18 +13,13 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install pre-commit && pre-commit install",
+	"postCreateCommand": "pre-commit install",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
 		"docker-from-docker": "latest",
-		"terraform": "latest",
-		"git": "latest",
-		"github-cli": "latest",
-		"node": "latest",
-		"python": "latest",
-		"golang": "latest"
+		"terraform": "latest"
 	},
 
 	// VSCode Editor Settings
