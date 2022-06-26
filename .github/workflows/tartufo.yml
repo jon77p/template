@@ -1,0 +1,13 @@
+on:
+  - pull_request
+name: 'Tartufo Scan'
+jobs:
+  tartufo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: godaddy/tartufo-action@v3.1.4
+        with:
+          entropy: "true"
+          regex: "true"
+          scan-filenames: "true"
+          include-submodule: "false"
