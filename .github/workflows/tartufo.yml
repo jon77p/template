@@ -13,13 +13,3 @@ jobs:
           regex: "true"
           scan-filenames: "true"
           include-submodule: "false"
-      - uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            ### Tartufo Scan Results
-            ```
-            ${{steps.tartufo.outputs}}
-            ```
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-          allow-repeats: false # This is the default
