@@ -18,7 +18,7 @@ jobs:
           message: |
             ### Tartufo Scan Results
             ```
-            ${{steps.tartufo.outputs.response}}
+            ${{steps.tartufo.outputs}}
             ```
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
