@@ -5,6 +5,7 @@ jobs:
   tartufo:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: godaddy/tartufo-action@v3.1.4
         with:
           entropy: "true"
