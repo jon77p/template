@@ -1,0 +1,30 @@
+version: '3'
+
+includes:
+  secrets: ../secrets
+
+tasks:
+  setup:
+    deps:
+      - virtualenv
+      - direnv
+      - secrets:setup
+      - pre-commit
+  virtualenv:
+    desc: Create virtualenv
+    cmds:
+      - python3 -m venv .venv
+      - .venv/bin/pip install -r requirements.txt
+    generates:
+      - .venv
+  pre-commit:
+    desc: Install pre-commit and hooks
+    cmds:
+      - pre-commit install
+      - pre-commit install-hooks
+  direnv:
+    desc: Setup direnv
+    cmds:
+      - direnv allow
+    status:
+      - cat .envrc | grep "direnv"

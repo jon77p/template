@@ -1,0 +1,20 @@
+version: '3'
+
+includes:
+  tasks: .tasks
+
+tasks:
+  setup:
+    desc: Setup repo environment
+    deps:
+      - tasks:setup
+  update:
+    desc: Run updates
+    deps:
+      - task: update-pre-commit
+  update-pre-commit:
+    desc: Update pre-commit hooks
+    deps:
+      - tasks:setup:pre-commit
+    cmds:
+      - pre-commit autoupdate
