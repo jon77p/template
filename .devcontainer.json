@@ -18,31 +18,31 @@
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"ghcr.io/devcontainers/features/aws-cli": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/docker-from-docker": {
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/git": {
+		"ghcr.io/devcontainers/features/git:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/github-cli": {
+		"ghcr.io/devcontainers/features/github-cli:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/go": {
+		"ghcr.io/devcontainers/features/go:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/node": {
+		"ghcr.io/devcontainers/features/node:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/python": {
+		"ghcr.io/devcontainers/features/python:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/rust": {
+		"ghcr.io/devcontainers/features/rust:1": {
 			"version": "latest"
 		},
-		"ghcr.io/devcontainers/features/terraform": {
+		"ghcr.io/devcontainers/features/terraform:1": {
 			"version": "latest"
 		}
 	},
