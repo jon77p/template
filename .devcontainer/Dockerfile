@@ -13,11 +13,5 @@ RUN groupadd ssh \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
     && apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
-        python3 \
-        python3-pip \
-        npm \
-        yarn \
-        git \
-        gh \
-        # cloudflared
-    && pip  install pre-commit
+        cloudflared \
+    && sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin

@@ -7,24 +7,28 @@ tasks:
   setup:
     deps:
       - virtualenv
+      - pip
       - direnv
       - secrets:setup
       - pre-commit
   virtualenv:
-    desc: Create virtualenv
     cmds:
       - python3 -m venv .venv
-      - .venv/bin/pip install -r requirements.txt
     generates:
       - .venv
+  pip:
+    deps:
+      - virtualenv
+    cmds:
+      - .venv/bin/pip install -r requirements.txt
   pre-commit:
-    desc: Install pre-commit and hooks
+    deps:
+      - pip
     cmds:
-      - pre-commit install
-      - pre-commit install-hooks
+      - .venv/bin/pre-commit install -f
   direnv:
-    desc: Setup direnv
     cmds:
+      - sudo apt install -y direnv
       - direnv allow
     status:
       - cat .envrc | grep "direnv"

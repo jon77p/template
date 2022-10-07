@@ -13,13 +13,38 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pre-commit install",
+	"postCreateCommand": "task setup",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"docker-from-docker": "latest",
-		"terraform": "latest"
+		"ghcr.io/devcontainers/features/aws-cli": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-from-docker": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/git": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/github-cli": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/go": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/python": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/rust": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/terraform": {
+			"version": "latest"
+		}
 	},
 
 	// VSCode Editor Settings
@@ -28,9 +53,12 @@
     	"sync.autoUpload": true,
     	"telemetry.enableTelemetry": false,
     	"redhat.telemetry.enabled": false,
-    	"debug.javascript.autoAttachFilter": "always",
+    	"debug.javascript.autoAttachFilter": "smart",
     	"git.autofetch": true,
-    	"git.confirmSync": false,
+		"files.associations": {
+			"*.yml": "yaml"
+		},
+    	"git.confirmSync": true,
     	"editor.inlineSuggest.enabled": true,
     	"github.copilot.inlineSuggest.enable": true,
     	"github.copilot.enable": {
