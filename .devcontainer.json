@@ -53,8 +53,11 @@
     	"sync.autoUpload": true,
     	"telemetry.enableTelemetry": false,
     	"redhat.telemetry.enabled": false,
-    	"debug.javascript.autoAttachFilter": "always",
+    	"debug.javascript.autoAttachFilter": "smart",
     	"git.autofetch": true,
+		"files.associations": {
+			"*.yml": "yaml"
+		},
     	"git.confirmSync": true,
     	"editor.inlineSuggest.enabled": true,
     	"github.copilot.inlineSuggest.enable": true,
