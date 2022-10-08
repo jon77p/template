@@ -61,6 +61,9 @@
     "files.associations": {
       "*.yml": "yaml"
     },
+    "yaml.schemas": {
+      "https://json.schemastore.org/taskfile.json": ".github/tasks/**/*.yml"
+    },
     "git.confirmSync": true,
     "editor.inlineSuggest.enabled": true,
     "github.copilot.inlineSuggest.enable": true,
