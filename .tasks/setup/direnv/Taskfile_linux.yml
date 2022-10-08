@@ -1,0 +1,9 @@
+---
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - sudo apt install direnv -y # linux only
+    status:
+      - which direnv
