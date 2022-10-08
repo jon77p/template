@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 includes:
   secrets: ../secrets
@@ -9,14 +9,14 @@ tasks:
     deps:
       - virtualenv
       - pip
-      - direnv:install
+      - direnv:setup
       - secrets:setup
       - pre-commit
   virtualenv:
     cmds:
       - python3 -m venv .venv
     generates:
-      - .venv
+      - .venv/bin/activate
     status:
       - test -d .venv
   pip:
