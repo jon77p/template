@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: "3"
 
 includes:
   format: format.yml
@@ -11,7 +11,7 @@ includes:
 tasks:
   setup:
     deps:
-      - update
+      - update:os:update
       - setup:setup
   update:
     deps:
