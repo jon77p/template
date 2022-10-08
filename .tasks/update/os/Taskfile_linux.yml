@@ -1,0 +1,7 @@
+---
+version: '3'
+
+tasks:
+  update:
+    cmds:
+      - sudo apt update && sudo apt upgrade -y

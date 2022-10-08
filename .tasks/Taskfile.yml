@@ -1,9 +1,15 @@
+---
 version: '3'
 
 includes:
   setup: setup
+  update: update
 
 tasks:
   setup:
     deps:
+      - update
       - setup:setup
+  update:
+    deps:
+      - update:update

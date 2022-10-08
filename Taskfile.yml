@@ -11,10 +11,4 @@ tasks:
   update:
     desc: Run updates
     deps:
-      - task: update-pre-commit
-  update-pre-commit:
-    desc: Update pre-commit hooks
-    deps:
-      - tasks:setup:pre-commit
-    cmds:
-      - pre-commit autoupdate
+      - tasks:update
