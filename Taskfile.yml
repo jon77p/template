@@ -12,7 +12,15 @@ tasks:
     desc: Run updates
     deps:
       - tasks:update
+  lint:
+    desc: Lint current repo
+    deps:
+      - tasks:lint
+  format:
+    desc: Format current repo
+    deps:
+      - tasks:format
   scan:
     desc: Scan current repo
-    cmds:
-      - source .venv/bin/activate && tartufo --config .github/tartufo.toml scan-local-repo .
+    deps:
+      - tasks:scan

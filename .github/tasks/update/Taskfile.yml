@@ -11,4 +11,6 @@ tasks:
       - update-pre-commit
   update-pre-commit:
     cmds:
-      - source .venv/bin/activate && pre-commit autoupdate --color never --freeze > /dev/null
+      - >-
+        source .venv/bin/activate &&
+        pre-commit autoupdate --color never --freeze > /dev/null
