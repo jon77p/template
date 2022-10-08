@@ -6,4 +6,4 @@ tasks:
     cmds:
       - >-
         source .venv/bin/activate &&
-        tartufo --config .github/tartufo.toml scan-local-repo .
+        tartufo scan-local-repo .

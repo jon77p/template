@@ -75,7 +75,7 @@ repos:
     rev: 7c78708eed025c5d901ee34106e12db370f6a595  # frozen: v3.2.1
     hooks:
       - id: tartufo
-        args: [--config .github/tartufo.toml pre-commit]
+        args: [pre-commit]
   # Python-related hooks
   - repo: https://github.com/pycqa/pylint
     rev: 403dac602ee01e317a22800e0d63bdeb0c2faa7e  # frozen: v2.15.3
