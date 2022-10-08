@@ -12,6 +12,7 @@ tasks:
       - direnv:setup
       - secrets:setup
       - pre-commit
+      - markdownlint
   virtualenv:
     cmds:
       - python3 -m venv .venv
@@ -33,3 +34,9 @@ tasks:
       - >-
         source .venv/bin/activate &&
         pre-commit install -f
+  markdownlint:
+    cmds:
+      - >-
+        gem install mdl
+    status:
+      - which mdl
