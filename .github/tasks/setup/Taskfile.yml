@@ -23,9 +23,9 @@ tasks:
     deps:
       - virtualenv
     cmds:
-      - .venv/bin/pip install -r requirements.dev.txt
+      - source .venv/bin/activate && pip install -q -r requirements.dev.txt
   pre-commit:
     deps:
       - pip
     cmds:
-      - .venv/bin/pre-commit install -f
+      - source .venv/bin/activate && pre-commit install -f
