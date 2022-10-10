@@ -10,8 +10,8 @@ tasks:
     cmds:
       - >-
         prettier
-        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
+        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=markdown
@@ -21,8 +21,8 @@ tasks:
     cmds:
       - >-
         prettier
-        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
+        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=yaml
@@ -35,8 +35,8 @@ tasks:
     cmds:
       - >-
         prettier
-        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
+        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=json

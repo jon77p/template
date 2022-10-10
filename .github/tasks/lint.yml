@@ -9,15 +9,15 @@ tasks:
 
   markdown:
     cmds:
-      - markdownlint -c '.github/lint/.markdownlint.yaml' --ignore-path '.github/lint/.markdownignore' *.md **/*.md
+      - markdownlint --config '.github/lint/.markdownlint.yaml' --ignore-path '.gitignore' *.md **/*.md
     ignore_error: true
 
   yaml:
     cmds:
-      - yamllint -c '.github/lint/.yamllint.yaml' .
+      - yamllint --config-file '.github/lint/.yamllint.yaml' .
     ignore_error: true
 
   format:
     cmds:
-      - prettier --ignore-path '.github/lint/.prettierignore' --config '.github/lint/.prettierrc.yaml' --check .
+      - prettier --config '.github/lint/.prettierrc.yaml' --ignore-path '.gitignore' --check .
     ignore_error: true
