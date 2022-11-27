@@ -6,12 +6,14 @@ tasks:
     - task: markdown
     - task: yaml
     - task: json
+    - task: ansible
+
   markdown:
     cmds:
       - >-
         prettier
+        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
-        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=markdown
@@ -21,8 +23,8 @@ tasks:
     cmds:
       - >-
         prettier
+        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
-        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=yaml
@@ -35,11 +37,16 @@ tasks:
     cmds:
       - >-
         prettier
+        --ignore-path '.github/lint/.prettierignore'
         --config '.github/lint/.prettierrc.yaml'
-        --ignore-path '.gitignore'
         --list-different
         --ignore-unknown
         --parser=json
         --write '*.json'
         '**/*.json'
+    ignore_error: true
+
+  ansible:
+    cmds:
+      - .venv/bin/ansible-lint -c '.ansible-lint.yml' --write
     ignore_error: true

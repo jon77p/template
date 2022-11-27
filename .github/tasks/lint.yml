@@ -6,18 +6,24 @@ tasks:
     - task: markdown
     - task: yaml
     - task: format
+    - task: ansible
 
   markdown:
     cmds:
-      - markdownlint --config '.github/lint/.markdownlint.yaml' --ignore-path '.gitignore' *.md **/*.md
+      - markdownlint -c '.github/lint/.markdownlint.yaml' --ignore-path '.github/lint/.markdownignore' *.md **/*.md
     ignore_error: true
 
   yaml:
     cmds:
-      - yamllint --config-file '.github/lint/.yamllint.yaml' .
+      - yamllint -c '.github/lint/.yamllint.yaml' .
     ignore_error: true
 
   format:
     cmds:
-      - prettier --config '.github/lint/.prettierrc.yaml' --ignore-path '.gitignore' --check .
+      - prettier --ignore-path '.github/lint/.prettierignore' --config '.github/lint/.prettierrc.yaml' --check .
+    ignore_error: true
+
+  ansible:
+    cmds:
+      - .venv/bin/ansible-lint -c '.ansible-lint.yml'
     ignore_error: true
