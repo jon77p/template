@@ -11,4 +11,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          delete: true # delete any labels that don't exist in .github/labels.json
+          delete: false # delete any labels that don't exist in .github/labels.json
