@@ -26,9 +26,33 @@ permissions:
   contents: read
 
 jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: read
+    steps:
+      # Use the gh API to check if the repository has code scanning enabled
+      # We can check this at /repos/{owner}/{repo}/code-scanning/alerts
+      - name: Check if code scanning is enabled
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          status=$(gh api /repos/${{ github.repository }}/code-scanning/alerts -i 2>/dev/null | head -n 1 | awk '{ print $2 }')
+          if [[ $status == "200" ]]; then
+            echo "enabled=true" >> $GITHUB_OUTPUT
+          else
+            echo "enabled=false" >> $GITHUB_OUTPUT
+          fi
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
   OSSAR-Scan:
     # OSSAR runs on windows-latest.
     # ubuntu-latest and macos-latest support coming soon
+    needs: check
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
@@ -37,22 +61,26 @@ jobs:
 
     steps:
       - name: Checkout repository
+        if: needs.check.outputs.enabled == 'true'
         uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3
 
       # Ensure a compatible version of dotnet is installed.
       # The [Microsoft Security Code Analysis CLI](https://aka.ms/mscadocs) is built with dotnet.
       - name: Install .NET
+        if: needs.check.outputs.enabled == 'true'
         uses: actions/setup-dotnet@607fce577a46308457984d59e4954e075820f10a # v3
         with:
           dotnet-version: "6.0"
 
       # Run open source static analysis tools
       - name: Run OSSAR
+        if: needs.check.outputs.enabled == 'true'
         uses: github/ossar-action@v1
         id: ossar
 
       # Upload results to the Security tab
       - name: Upload OSSAR results
+        if: needs.check.outputs.enabled == 'true'
         uses: github/codeql-action/upload-sarif@04df1262e6247151b5ac09cd2c303ac36ad3f62b # v2
         with:
           sarif_file: ${{ steps.ossar.outputs.sarifFile }}
