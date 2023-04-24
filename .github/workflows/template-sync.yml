@@ -14,9 +14,9 @@ jobs:
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
       - name: actions-template-sync
-        uses: AndreasAugustin/actions-template-sync@v0.8.0
+        uses: AndreasAugustin/actions-template-sync@6038fdfeb863b03c9c451ae039347fbeb1b7a3e4 # v0.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: jon77p/template
