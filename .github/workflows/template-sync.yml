@@ -18,7 +18,7 @@ jobs:
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@6038fdfeb863b03c9c451ae039347fbeb1b7a3e4 # v0.8.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TEMPLATE_SYNC_TOKEN }}
           source_repo_path: jon77p/template
           upstream_branch: main
           pr_labels: template-sync
