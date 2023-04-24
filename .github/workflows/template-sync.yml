@@ -15,18 +15,14 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Base64 encode app key
-        id: base64
-        run: |
-          echo "private_key=$( echo '${{ secrets.TEMPLATE_SYNC_PRIVATE_KEY }}' | base64 -w0)" >> "$GITHUB_OUTPUT"
-      - name: Generate token to read from source repo
+      - name: Generate GitHub App Token
         # see: https://github.com/tibdex/github-app-token
         id: generate_token
-        uses: tibdex/github-app-token@v1
+        uses: tibdex/github-app-token@v1.8.0
         with:
           app_id: ${{ secrets.TEMPLATE_SYNC_APP_ID }}
-          private_key: ${{ steps.base64.outputs.private_key }}
-      - name: actions-template-sync
+          private_key: ${{ secrets.TEMPLATE_SYNC_PRIVATE_KEY }}
+      - name: Sync Template
         uses: AndreasAugustin/actions-template-sync@v0.8.0
         with:
           github_token: ${{ steps.generate_token.outputs.token }}
