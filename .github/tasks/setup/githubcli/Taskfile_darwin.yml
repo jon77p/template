@@ -8,5 +8,7 @@ tasks:
     cmds:
       - brew install gh # macOS only
   setup:
+    status:
+      - which gh
     deps:
       - install
