@@ -4,7 +4,7 @@ name: Create Default Labels
 jobs:
   labels:
     name: DefaultLabelsActions
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - uses: lannonbr/issue-label-manager-action@e8dbcd8198e86a1e98d5372e55db976fed9ba6f7 # 4.0.0
