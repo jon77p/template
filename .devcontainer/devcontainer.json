@@ -2,29 +2,33 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/ubuntu
 {
   "name": "Template",
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
-  "postStartCommand": "sudo /bin/bash -c \"$(curl --location https://taskfile.dev/install.sh)\" -- -d -b /usr/local/bin && task setup",
-
   "features": {
-    "ghcr.io/devcontainers/features/aws-cli:1": {
-      "version": "latest"
+    // Common Utilities
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      // Set ZSH as the default shell
+      "configureZshAsDefaultShell": true
     },
-    // "ghcr.io/devcontainers/features/docker-from-docker:1": {
-    //   "version": "latest"
-    // },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/rust:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/terraform:1": {
-      "version": "latest"
-    }
+    // Python
+    "ghcr.io/devcontainers/features/python:1": {},
+    // GitHub CLI
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    // NodeJS
+    // "ghcr.io/devcontainers/features/node:1": {},
+    // Rust
+    "ghcr.io/devcontainers/features/rust:1": {},
+    // Taskfile
+    "ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+    // Direnv
+    "ghcr.io/devcontainers-contrib/features/direnv-asdf:2": {}
+  },
+
+  "postStartCommand": {
+    "dev": "direnv allow . && task setup"
   },
 
   // VSCode Editor Settings

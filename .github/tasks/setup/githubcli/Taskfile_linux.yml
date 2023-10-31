@@ -18,5 +18,7 @@ tasks:
         sudo apt update -qq -o=Dpkg::Use-Pty=0 &&
         sudo apt install -qq -o=Dpkg::Use-Pty=0 -y gh
   setup:
+    status:
+      - which gh
     deps:
       - install

@@ -12,9 +12,9 @@ tasks:
     cmds:
       - task: pip
       - task: yarn
-      - task: githubcli:setup
-      - task: cloudflared:setup
-      - task: direnv:setup
+      # - task: githubcli:setup
+      # - task: cloudflared:setup
+      # - task: direnv:setup
       - task: secrets:setup
       - task: pre-commit
   virtualenv:
@@ -25,14 +25,17 @@ tasks:
     status:
       - test -d .venv
       - test -f .venv/bin/activate
-  pip:
+  pip-virtualenv:
     cmds:
       - task: virtualenv
-      - .venv/bin/python3 -m pip install -r requirements.dev.txt
+      - source .venv/bin/activate && python3 -m pip install --require-virtualenv -r requirements.dev.txt
+  pip:
+    cmds:
+      - task: pip-virtualenv
   pre-commit:
     cmds:
       - task: pip
-      - .venv/bin/pre-commit install -f
+      - pre-commit install -f
   yarn:
     cmds:
       - yarn install
@@ -44,5 +47,5 @@ tasks:
     cmds:
       - task: pip
       - >-
-        .venv/bin/ansible-galaxy role install -r requirements.yml &&
-        .venv/bin/ansible-galaxy collection install -r requirements.yml
+        ansible-galaxy role install -r requirements.yml &&
+        ansible-galaxy collection install -r requirements.yml
