@@ -90,7 +90,7 @@ repos:
             --no-strict-optional,
           ]
   - repo: https://github.com/psf/black
-    rev: 23.10.1 # frozen: 23.3.0
+    rev: 23.11.0 # frozen: 23.3.0
     hooks:
       - id: black
   # Golang-related hooks
@@ -103,7 +103,7 @@ repos:
       - id: go-mod-vendor
   # Terraform-related hooks
   - repo: https://github.com/gruntwork-io/pre-commit
-    rev: v0.1.22 # frozen: v0.1.21
+    rev: v0.1.23 # frozen: v0.1.21
     hooks:
       - id: terraform-fmt
       - id: terraform-validate
