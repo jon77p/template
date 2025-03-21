@@ -75,7 +75,7 @@ repos:
       - id: gitleaks
   # Python-related hooks
   - repo: https://github.com/pycqa/pylint
-    rev: v3.3.5 # frozen: v3.0.0a6
+    rev: v3.3.6 # frozen: v3.0.0a6
     hooks:
       - id: pylint
         args: ["-rn", "-sn", "--rcfile=.github/lint/.pylintrc"]
@@ -103,7 +103,7 @@ repos:
       - id: go-mod-vendor
   # Terraform-related hooks
   - repo: https://github.com/gruntwork-io/pre-commit
-    rev: v0.1.26 # frozen: v0.1.21
+    rev: v0.1.28 # frozen: v0.1.21
     hooks:
       - id: terraform-fmt
       - id: terraform-validate
