@@ -27,7 +27,7 @@ jobs:
       - name: Configure 1Password Service Account
         if: ${{ github.event.inputs.sync_workflows == 'true' }}
         id: configure-1password
-        uses: 1Password/load-secrets-action/configure@8d0d610af187e78a2772c2d18d627f4c52d3fbfb # v3
+        uses: 1Password/load-secrets-action/configure@dafbe7cb03502b260e2b2893c753c352eee545bf # v3
         with:
           service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
       # Fetch TEMPLATE_SYNC_APP_ID and TEMPLATE_SYNC_PRIVATE_KEY
@@ -35,7 +35,7 @@ jobs:
       # Run only if configure-1password was successful
       - name: Fetch Secrets
         if: ${{ steps.configure-1password.outcome == 'success' }}
-        uses: 1Password/load-secrets-action@8d0d610af187e78a2772c2d18d627f4c52d3fbfb # v3
+        uses: 1Password/load-secrets-action@dafbe7cb03502b260e2b2893c753c352eee545bf # v3
         id: fetch-secrets
         with:
           export-env: false
